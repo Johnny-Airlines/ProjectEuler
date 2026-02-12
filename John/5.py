@@ -10,7 +10,7 @@ def isEvenlyDivisible(x):
     return True
 
 
-num = 1
+num = 20
 while not isEvenlyDivisible(num):
     num = num + 1
 print(num)

@@ -18,7 +18,6 @@ def collatzConjecture(n):
 
 longestChainLength = 0
 longestChainStartNumber = 0
-print(collatzConjecture(9182012))
 for i in range(1,1000000):
     length = collatzConjecture(i)
     if length > longestChainLength:
