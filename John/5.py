@@ -4,13 +4,13 @@ What is the smallest positive number that is evenly divisible by all of the numb
 '''
 
 def isEvenlyDivisible(x):
-    for i in range(1,21):
+    for i in range(1,20+1):
         if x % i != 0:
             return False
     return True
 
 
-num = 1
+num = 20
 while not isEvenlyDivisible(num):
     num = num + 1
 print(num)
