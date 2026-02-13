@@ -4,7 +4,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 '''
 
 def isEvenlyDivisible(x):
-    for i in range(1,21):
+    for i in range(1,20+1):
         if x % i != 0:
             return False
     return True
