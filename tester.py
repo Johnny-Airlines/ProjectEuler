@@ -2,12 +2,13 @@ import subprocess
 import sys
 from tabulate import tabulate
 import json
+import os
 
 def checkFile(program,update = False):
     global results
     global i
     try:
-        with open("./out.log","w") as f:
+        with open("./out.log","w+") as f:
             process = subprocess.run(["bash","./tester.sh",program],shell=False,stdout=f,timeout=300)
         with open("./out.log","r") as f:
             result = [i.rstrip() for i in f.readlines()]
@@ -23,6 +24,7 @@ def checkFile(program,update = False):
         else:
             print(f"{program} failed with time: {result[0].split("m")[0]}m, {result[0].split("m")[1]}, took longer than 1m")
             formattedRes = [i,"❌",f"{result[0].split("m")[0]}m, {result[0].split("m")[1]}", "took longer than 1m"]
+        os.remove("./out.log")
     except subprocess.TimeoutExpired:
         print(f"{program} failed, took longer than 5m")
         formattedRes = [i,"❌","-",f"Took longer than 5m"]
