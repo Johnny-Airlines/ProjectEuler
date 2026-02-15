@@ -56,15 +56,6 @@ while i < 4:
         j -=1
         '''
 
-'''
-distances = [
- ["-",7,5,10,float('inf')],
- [7,"-",4,17,3],
- [5,4,"-",6,float('inf')],
- [10,17,6,"-",3],
- [float('inf'),3,float('inf'),3,"-"]
-]
-'''
 distances = [
     ["-",7,4,float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf')],
     [float('inf'),"-",float('inf'),2,4,float('inf'),float('inf'),float('inf'),float('inf'),float('inf')],
@@ -78,13 +69,6 @@ distances = [
     [float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),"-"]
 ]
 distances = [[float('-inf') if j==float('inf') else (j * 1 if j != "-" else "-" )for j in i] for i in distances]
-'''
-distances = [
-    ["-",float("inf"),-2,float("inf")],
-    [4,"-",3,float("inf")],
-    [float("inf"),float("inf"),"-",2],
-    [float("inf"),-1,float("inf"),"-"]
-]'''
 for i in range(len(distances)):
     row = distances[i]
     for j in range(len(row)):
