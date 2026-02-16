@@ -1,19 +1,21 @@
 #!/bin/bash
 
-# 1. Table
+SOLUTIONS_FILE="solutions.txt"
 declare -A lookup
-lookup=(
-    ["233168"]="pass" ["4613732"]="pass" ["6857"]="pass" ["906609"]="pass" ["232792560"]="pass"
-    ["25164150"]="pass" ["104743"]="pass" ["23514624000"]="pass" ["31875000"]="pass" ["142913828922"]="pass"
-    ["70600674"]="pass" ["76576500"]="pass" ["5537376230"]="pass" ["837799"]="pass" ["137846528820"]="pass"
-    ["1366"]="pass" ["21124"]="pass" ["1074"]="pass" ["171"]="pass" ["648"]="pass"
-    ["31626"]="pass" ["691020"]="pass" ["4179871"]="pass" ["2783915460"]="pass" ["4782"]="pass"
-    ["2496144"]="pass" ["21000"]="pass" ["26115"]="pass" ["27074400"]="pass" ["443839"]="pass"
-    ["127520431"]="pass" ["45228"]="pass" ["40730"]="pass" ["1968329"]="pass" ["7129162514264337593543950335"]="pass"
-    ["1492155"]="pass" ["748317"]="pass" ["932718654"]="pass" ["1035"]="pass" ["210500"]="pass"
-    ["4543901"]="pass" ["1627549360"]="pass" ["16695334890"]="pass" ["547"]="pass" ["153372"]="pass"
-    ["1476"]="pass" ["46693"]="pass" ["1000"]="pass" ["2408404"]="pass" ["4065424064"]="pass"
-)
+
+if [[ -f "$SOLUTIONS_FILE" ]]; then
+    while read -r line; do
+        ans="${line#* }"
+        ans="${ans//[[:space:]]/}"
+        
+        if [[ -n "$ans" ]]; then
+            lookup["$ans"]="pass"
+        fi
+    done < "$SOLUTIONS_FILE"
+else
+    echo "Error: $SOLUTIONS_FILE not found." >&2
+    exit 1
+fi
 
 tmp_time=$(mktemp)
 

@@ -23,3 +23,4 @@ My attempt at the ProjectEuler problems
 |        19 | ✅        | 0m, 0.021s  | -                   |
 |        20 | ✅        | 0m, 0.025s  | -                   |
 |        21 | ✅        | 0m, 0.091s  | -                   |
+|        22 | ✅        | 0m, 0.376s  | -                   |
