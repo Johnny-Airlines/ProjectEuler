@@ -20,5 +20,5 @@ primes = []
 while getFactor(num) != "Prime":
     num = getFactor(num)
 
-print(num)
+print(int(num))
     
