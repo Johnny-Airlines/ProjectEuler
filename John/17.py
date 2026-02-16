@@ -1,3 +1,9 @@
+'''
+Problem 17
+If all the numbers from 1 to 1000 inclusive were written out in words, how many letters would be used? 
+Excluding spaces or hyphens, including and in compliance with British usage.
+'''
+
 import time
 
 lengths = {
