@@ -1,3 +1,8 @@
+'''
+Problem 18
+Find the maximum total from top to bottom of the triangle below, only moving to adjacent numbers on the row below.
+'''
+
 triangle = """3
 7 4
 2 4 6
