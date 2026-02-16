@@ -1,91 +1,38 @@
-def getColumn(matrix,i):
-    return [row[i] for row in matrix]
-
-def prettyPrint(matrix):
-    for row in matrix:
-        print(row)
-'''
 triangle = """3
 7 4
 2 4 6
 8 5 9 3"""
-badRows = triangle.split("\n")
-rows = []
-for row in badRows:
-    row = row.split(" ")
-    rows.append(row)
+triangle = """75
+95 64
+17 47 82
+18 35 87 10
+20 04 82 47 65
+19 01 23 75 03 34
+88 02 77 73 07 63 67
+99 65 04 28 06 16 70 92
+41 41 26 56 83 40 80 70 33
+41 48 72 33 47 32 37 16 94 29
+53 71 44 65 25 43 91 52 97 51 14
+70 11 33 28 77 73 17 78 39 68 17 57
+91 71 52 38 17 14 91 43 58 50 27 29 48
+63 66 04 68 89 53 67 30 73 16 69 87 40 31
+04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
+nodes = []
+for node in triangle.split("\n"):
+    nodes.append([int(x) for x in node.split(" ")])
+unvisitedNodes = [[float('-inf') for i in range(j)] for j in range(1,len(triangle.split("\n"))+1)]
+unvisitedNodes[0][0] = nodes[0][0]
 
-rows.pop(0)
-print(rows)
-j = 0
-for row in rows:
-    for x in row:
-        j += 1
-distances = [[float('inf') for j in range(j)] for i in range(j+1)]
-for i in range(len(distances)):
-    distances[i].insert(i,"-")
-print(distances)
+for i in range(len(unvisitedNodes)-1):
+    print(unvisitedNodes)
+    for j in range(len(unvisitedNodes[i])):
+        currentValue = unvisitedNodes[i][j]
+        print(f"Checking if {unvisitedNodes[i+1][j]} is less than {currentValue} + {nodes[i+1][j]}")
+        if unvisitedNodes[i+1][j] < currentValue + nodes[i+1][j]:
+            unvisitedNodes[i+1][j] = currentValue + nodes[i+1][j]
+        print(f"Checking if {unvisitedNodes[i+1][j+1]} is less than {currentValue} + {nodes[i+1][j+1]}")
+        if unvisitedNodes[i+1][j+1] < currentValue + nodes[i+1][j+1]:
+            unvisitedNodes[i+1][j+1] = currentValue + nodes[i+1][j+1]
 
-i = 0
-a = 0
-j = 0
-offset = 0
-while i < 4:
-    row = rows[a]
-    #j = 0
-    b = j
-    k = i+offset
-    running = True
-    while running:
-        if distances[i][k] == "-":
-            k += 1
-        else:
-            distances[i][k] = row[j]
-            j += 1
-            k += 1
-            if j >= b+2:
-                running = False
-    if row[j-1] == row[-1]:
-        i += 1
-        a += 1
-        j = 0
-        offset += len(row)
-    else:
-        print(row[j-1])
-        i += 1
-        j -=1
-        '''
-
-distances = [
-    ["-",7,4,float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf')],
-    [float('inf'),"-",float('inf'),2,4,float('inf'),float('inf'),float('inf'),float('inf'),float('inf')],
-    [float('inf'),float('inf'),"-",float('inf'),4,6,float('inf'),float('inf'),float('inf'),float('inf')],
-    [float('inf'),float('inf'),float('inf'),"-",float('inf'),float('inf'),8,5,float('inf'),float('inf')],
-    [float('inf'),float('inf'),float('inf'),float('inf'),"-",float('inf'),float('inf'),5,9,float('inf')],
-    [float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),"-",float('inf'),float('inf'),9,3],
-    [float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),"-",float('inf'),float('inf'),float('inf')],
-    [float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),"-",float('inf'),float('inf')],
-    [float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),"-",float('inf')],
-    [float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),float('inf'),"-"]
-]
-distances = [[float('-inf') if j==float('inf') else (j * 1 if j != "-" else "-" )for j in i] for i in distances]
-for i in range(len(distances)):
-    row = distances[i]
-    for j in range(len(row)):
-        if row[j] != "-" and row[j] != float('inf'):
-            distances[i][j] *= 1
-    
-prettyPrint(distances)
-
-for k in range(len(distances)):
-    row = distances[k]
-    column = getColumn(distances,k)
-    for i in range(len(distances)):
-        for j in range(len(distances)):
-            if i != k and j != k and distances[i][j] != "-":
-                sum = row[i] + column[j]
-                if sum > distances[j][i]:
-                    distances[j][i] = sum
-prettyPrint(distances)
-distances[0].remove("-")
-print(max(distances[0]))
+print(unvisitedNodes)
+print(max(unvisitedNodes[-1]))

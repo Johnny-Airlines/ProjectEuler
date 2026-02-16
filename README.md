@@ -19,3 +19,4 @@ My attempt at the ProjectEuler problems
 |        15 | ❌        | -           | Took longer than 5m |
 |        16 | ✅        | 0m, 0.026s  | -                   |
 |        17 | ✅        | 0m, 0.031s  | -                   |
+|        18 | ✅        | 0m, 0.026s  | -                   |
