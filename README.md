@@ -39,4 +39,4 @@ My attempt at the ProjectEuler problems
 |        35 | ✅        | 0m, 3.065s  | -                   |
 |        36 | ✅        | 0m, 0.925s  | -                   |
 |        37 | ✅        | 0m, 3.079s  | -                   |
-|        38 | ✅        | 0m, 1.398s  | -                   |
+|        38 | ✅        | 0m, 0.039s  | -                   |
