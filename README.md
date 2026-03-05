@@ -45,3 +45,4 @@ My attempt at the ProjectEuler problems
 |        41 | ✅        | 0m, 30.599s | -        |
 |        42 | ✅        | 0m, 0.025s  | -        |
 |        43 | ✅        | 0m, 9.824s  | -        |
+|        44 | ✅        | 0m, 40.613s | -        |
