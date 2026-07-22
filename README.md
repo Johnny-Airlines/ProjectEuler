@@ -2,8 +2,8 @@
 My attempt at the ProjectEuler problems
 |   Problem | Result   | Time        | Reason   |
 |-----------|----------|-------------|----------|
-|         1 | ✅        | 0m, 0.021s  | -        |
-|         2 | ✅        | 0m, 0.016s  | -        |
+|         1 | ✅        | 0m, 0.046s  | -        |
+|         2 | ✅        | 0m, 0.045s  | -        |
 |         3 | ✅        | 0m, 0.023s  | -        |
 |         4 | ✅        | 0m, 0.460s  | -        |
 |         5 | ✅        | 0m, 0.021s  | -        |
@@ -46,3 +46,4 @@ My attempt at the ProjectEuler problems
 |        42 | ✅        | 0m, 0.025s  | -        |
 |        43 | ✅        | 0m, 9.824s  | -        |
 |        44 | ✅        | 0m, 40.613s | -        |
+|        45 | ✅        | 0m, 0.114s  | -        |
