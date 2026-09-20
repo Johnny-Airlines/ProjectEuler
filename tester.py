@@ -63,7 +63,7 @@ def checkFile(program, update=False):
 options = sys.argv
 if len(options) == 1:
     results = []
-    for i in range(1, 18):
+    for i in range(1, len(os.listdir("haskell"))):
         checkFile(f"./haskell/{i}.hs")
 
 else:
