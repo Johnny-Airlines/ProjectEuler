@@ -14,7 +14,7 @@ lcm a b = (a * b) `div` (gcd a b)
 lcmMany :: [Int] -> Int
 lcmMany list = go (drop 2 list) (lcm (list !! 0) (list !! 1))
   where
-    go list result
+    go !list !result
       | list == [] = result
       | otherwise = go (drop 1 list) (lcm result (list !! 0))
 
